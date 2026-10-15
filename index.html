@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>Forma — Escolhas para o seu dia</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#" aria-label="Forma, início">forma<span>®</span></a>
+    <nav aria-label="Navegação principal">
+      <a class="collection-link" href="#colecao">Coleção</a>
+      <button class="premium-button" id="open-premium">✦ Plano Premium</button>
+      <span class="bag" aria-live="polite" aria-atomic="true">Sacola <span id="cart-count">0</span></span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="intro-title">
+      <div>
+        <p class="eyebrow"><span class="dot"></span> MENOS EXCESSO. MAIS ESSENCIAL.</p>
+        <h1 id="intro-title">Seu dia merece<br>uma boa <em>forma.</em></h1>
+      </div>
+      <div class="intro-note"><span class="spark">✳</span><p>Design que você sente.<br>Escolhas que fazem sentido.</p><a href="#colecao">Explore a coleção <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section class="collection" id="colecao" aria-labelledby="collection-title">
+      <div class="section-heading"><h2 id="collection-title">Pequenos upgrades. Grandes dias.</h2><span>CURADORIA FORMA / 004 ITENS</span></div>
+      <div class="product-grid">
+        <article class="product">
+          <div class="product-image green"><span class="tag">MAIS VENDIDO</span><span class="product-art" role="img" aria-label="Fone de ouvido">🎧</span><span class="image-caption">DESLIGUE O MUNDO.</span></div>
+          <div class="product-category">ÁUDIO · SEM FIO</div><h3>Headphone Flow</h3><p class="description">Seu som. Seu espaço. Seu momento.</p>
+          <div class="product-bottom"><p class="price">R$ 299<span>ou 3x de R$ 99,67</span></p><button class="buy-button" data-product="Headphone Flow">Comprar <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product">
+          <div class="product-image peach"><span class="tag">NOVO</span><span class="product-art" role="img" aria-label="Relógio de pulso">⌚</span><span class="image-caption">NO SEU RITMO.</span></div>
+          <div class="product-category">ACESSÓRIOS · SMART</div><h3>Watch Tempo</h3><p class="description">Mais presença em cada segundo.</p>
+          <div class="product-bottom"><p class="price">R$ 449<span>ou 3x de R$ 149,67</span></p><button class="buy-button" data-product="Watch Tempo">Comprar <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product">
+          <div class="product-image lavender"><span class="product-art" role="img" aria-label="Teclado">⌨️</span><span class="image-caption">IDEIAS EM MOVIMENTO.</span></div>
+          <div class="product-category">DESK · WIRELESS</div><h3>Teclado Studio</h3><p class="description">Abra espaço para a próxima ideia.</p>
+          <div class="product-bottom"><p class="price">R$ 239<span>ou 3x de R$ 79,67</span></p><button class="buy-button" data-product="Teclado Studio">Comprar <span aria-hidden="true">→</span></button></div>
+        </article>
+        <article class="product">
+          <div class="product-image sand"><span class="product-art" role="img" aria-label="Mochila">🎒</span><span class="image-caption">LEVE O QUE IMPORTA.</span></div>
+          <div class="product-category">LIFESTYLE · EVERYDAY</div><h3>Mochila Go</h3><p class="description">Da primeira reunião ao último café.</p>
+          <div class="product-bottom"><p class="price">R$ 189<span>ou 3x de R$ 63,00</span></p><button class="buy-button" data-product="Mochila Go">Comprar <span aria-hidden="true">→</span></button></div>
+        </article>
+      </div>
+    </section>
+
+    <aside class="premium-banner"><span class="banner-icon" aria-hidden="true">✦</span><div><h2>Boas escolhas merecem mais.</h2><p>Conheça as vantagens de fazer parte do Plano Premium.</p></div><button class="text-button" id="banner-premium">Descobrir o Premium <span aria-hidden="true">→</span></button></aside>
+  </main>
+  <footer><a class="logo" href="#">forma<span>®</span></a><p>O essencial, bem escolhido.</p><span>© 2026 Forma · Loja demonstrativa</span></footer>
+
+  <dialog id="premium-modal" aria-labelledby="premium-title" aria-describedby="premium-description">
+    <button class="close-button" id="close-premium" aria-label="Fechar modal">×</button>
+    <span class="modal-icon" aria-hidden="true">✦</span><p class="eyebrow">SEU DIA, COM MAIS VANTAGENS</p>
+    <h2 id="premium-title">Entre para o<br>lado <em>Premium.</em></h2>
+    <p id="premium-description">Uma experiência especial para quem valoriza cada escolha.</p>
+    <ul class="benefits"><li><span>✓</span> Frete grátis em todos os pedidos</li><li><span>✓</span> 10% de desconto na coleção</li><li><span>✓</span> Acesso antecipado aos lançamentos</li></ul>
+    <p class="plan-price">R$ 19,90 <span>/ mês</span></p>
+    <button class="subscribe-button" id="subscribe">Quero ser Premium <span aria-hidden="true">→</span></button>
+    <p class="fine-print">Plano demonstrativo. Nenhuma cobrança será realizada.</p>
+    <p id="premium-feedback" role="status" hidden>Interesse registrado nesta demonstração. Obrigado!</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>
