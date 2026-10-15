@@ -13,6 +13,7 @@
     <a class="logo" href="#" aria-label="Forma, início">forma<span>®</span></a>
     <nav aria-label="Navegação principal">
       <a class="collection-link" href="#colecao">Coleção</a>
+      <button class="code-button" id="open-code">Code</button>
       <button class="premium-button" id="open-premium">✦ Plano Premium</button>
       <span class="bag" aria-live="polite" aria-atomic="true">Sacola <span id="cart-count">0</span></span>
     </nav>
@@ -62,11 +63,27 @@
     <span class="modal-icon" aria-hidden="true">✦</span><p class="eyebrow">SEU DIA, COM MAIS VANTAGENS</p>
     <h2 id="premium-title">Entre para o<br>lado <em>Premium.</em></h2>
     <p id="premium-description">Uma experiência especial para quem valoriza cada escolha.</p>
-    <ul class="benefits"><li><span>✓</span> Frete grátis em todos os pedidos</li><li><span>✓</span> 10% de desconto na coleção</li><li><span>✓</span> Acesso antecipado aos lançamentos</li></ul>
-    <p class="plan-price">R$ 19,90 <span>/ mês</span></p>
+    <ul class="benefits"><li><span>✓</span> Frete grátis em todos os pedidos</li><li><span>✓</span> Acesso antecipado aos lançamentos</li></ul>
+    <p class="plan-price">R$ 30,00 <span>/ mês</span></p>
     <button class="subscribe-button" id="subscribe">Quero ser Premium <span aria-hidden="true">→</span></button>
     <p class="fine-print">Plano demonstrativo. Nenhuma cobrança será realizada.</p>
     <p id="premium-feedback" role="status" hidden>Interesse registrado nesta demonstração. Obrigado!</p>
+  </dialog>
+  <dialog id="code-modal" aria-labelledby="code-title" aria-describedby="code-description">
+    <button class="close-button" id="close-code" aria-label="Fechar modal de código">×</button>
+    <span class="modal-icon" aria-hidden="true">⌘</span>
+    <p class="eyebrow">UM ACESSO ESPECIAL PARA VOCÊ</p>
+    <h2 id="code-title">Seu <em>Code.</em></h2>
+    <p id="code-description">Digite seu e-mail e código para continuar.</p>
+    <form id="code-form">
+      <label for="code-email">E-mail</label>
+      <input id="code-email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
+      <label for="access-code">Código</label>
+      <input id="access-code" name="code" type="text" placeholder="Digite seu código" pattern=".*\S.*" required>
+      <button class="subscribe-button" type="submit">Enviar código <span aria-hidden="true">→</span></button>
+      <p class="fine-print">Demonstração: os dados não são enviados ou armazenados.</p>
+      <p id="code-feedback" role="status" hidden>Campos preenchidos. A validação do código estará disponível em breve.</p>
+    </form>
   </dialog>
   <div class="toast" id="toast" role="status" hidden></div>
 </body>
