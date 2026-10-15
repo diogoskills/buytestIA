@@ -1,0 +1,21 @@
+# Optional deployment blueprint. Review provider pricing before creating services.
+# No service is created by committing this file.
+services:
+  - type: web
+    name: forma-premium-web
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - fromGroup: forma-premium
+      - key: PORT
+        value: '3000'
+  - type: worker
+    name: forma-premium-worker
+    runtime: docker
+    plan: starter
+    dockerCommand: node server/worker.js
+    envVars:
+      - fromGroup: forma-premium
+# Create the forma-premium environment group securely in Render before deploy.
+# Both services need the same values from .env.example; APP_ORIGIN is the web URL.

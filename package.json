@@ -1,0 +1,29 @@
+{
+  "name": "forma-premium-checkout",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "worker": "node --env-file-if-exists=.env server/worker.js",
+    "migrate": "node --env-file-if-exists=.env scripts/migrate.js",
+    "price": "node --env-file-if-exists=.env scripts/price.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "check": "node --check server/app.js && node --check server/billing.js && node --check server/jobs.js && node --check web/premium.js",
+    "test:browser": "node tests/browser.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.100.0",
+    "express": "5.1.0",
+    "pg": "8.16.3"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "esbuild": "0.25.12",
+    "playwright": "1.56.1"
+  }
+}

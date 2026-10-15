@@ -1,0 +1,23 @@
+project_id = "buytestia-premium"
+
+[api]
+enabled = true
+# billing is intentionally absent: only the backend can access it.
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+
+[db]
+major_version = 17
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000/auth/callback"]
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+max_frequency = "60s"
+otp_expiry = 3600
+# Hosted production SMTP and redirect URLs must also be set in its dashboard.

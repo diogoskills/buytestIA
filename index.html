@@ -7,6 +7,7 @@
   <title>Forma — Escolhas para o seu dia</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="/assets/premium.js" defer></script>
 </head>
 <body>
   <header class="header">
@@ -62,27 +63,45 @@
     <button class="close-button" id="close-premium" aria-label="Fechar modal">×</button>
     <span class="modal-icon" aria-hidden="true">✦</span><p class="eyebrow">SEU DIA, COM MAIS VANTAGENS</p>
     <h2 id="premium-title">Entre para o<br>lado <em>Premium.</em></h2>
-    <p id="premium-description">Uma experiência especial para quem valoriza cada escolha.</p>
-    <ul class="benefits"><li><span>✓</span> Frete grátis em todos os pedidos</li><li><span>✓</span> Acesso antecipado aos lançamentos</li></ul>
-    <p class="plan-price">R$ 30,00 <span>/ mês</span></p>
-    <button class="subscribe-button" id="subscribe">Quero ser Premium <span aria-hidden="true">→</span></button>
-    <p class="fine-print">Plano demonstrativo. Nenhuma cobrança será realizada.</p>
-    <p id="premium-feedback" role="status" hidden>Interesse registrado nesta demonstração. Obrigado!</p>
+    <p id="premium-description">Frete grátis e acesso antecipado aos lançamentos. Escolha uma vez, aproveite todos os dias.</p>
+    <p class="flow-message" id="premium-message" role="status" aria-live="polite">Carregando os planos…</p>
+    <div id="premium-content" hidden>
+      <fieldset class="plan-options"><legend>Escolha seu plano</legend><div id="plan-options"></div></fieldset>
+      <form id="login-form">
+        <label for="purchase-email">Seu e-mail</label>
+        <input id="purchase-email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" maxlength="254" required>
+        <p class="fine-print">Confira o endereço antes de continuar. Enviaremos um link seguro para confirmar sua identidade.</p>
+        <button class="subscribe-button" type="submit">Receber link de acesso <span aria-hidden="true">→</span></button>
+        <p class="fine-print">Já comprou? Entre com o mesmo e-mail para recuperar seu acesso.</p>
+      </form>
+      <div id="authenticated-checkout" hidden>
+        <div class="account-identity"><span id="account-email"></span><button id="logout" class="small-button">Sair</button></div>
+        <button class="subscribe-button" id="start-checkout">Continuar para pagamento <span aria-hidden="true">→</span></button>
+        <p class="fine-print">Você será direcionado ao Checkout Pro do Mercado Pago. Sem renovação automática.</p>
+        <div id="access-summary"></div>
+        <div id="order-list" class="order-list"></div>
+        <button class="small-button" id="refresh-payment">Consultar pagamento atualizado</button>
+      </div>
+    </div>
   </dialog>
   <dialog id="code-modal" aria-labelledby="code-title" aria-describedby="code-description">
     <button class="close-button" id="close-code" aria-label="Fechar modal de código">×</button>
     <span class="modal-icon" aria-hidden="true">⌘</span>
-    <p class="eyebrow">UM ACESSO ESPECIAL PARA VOCÊ</p>
+    <p class="eyebrow">ATIVAÇÃO DO SEU ACESSO</p>
     <h2 id="code-title">Seu <em>Code.</em></h2>
-    <p id="code-description">Digite seu e-mail e código para continuar.</p>
-    <form id="code-form">
-      <label for="code-email">E-mail</label>
-      <input id="code-email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
-      <label for="access-code">Código</label>
-      <input id="access-code" name="code" type="text" placeholder="Digite seu código" pattern=".*\S.*" required>
-      <button class="subscribe-button" type="submit">Enviar código <span aria-hidden="true">→</span></button>
-      <p class="fine-print">Demonstração: os dados não são enviados ou armazenados.</p>
-      <p id="code-feedback" role="status" hidden>Campos preenchidos. A validação do código estará disponível em breve.</p>
+    <p id="code-description">Após a confirmação do pagamento, use o código enviado ao e-mail da sua conta.</p>
+    <p class="flow-message" id="code-message" role="status" aria-live="polite"></p>
+    <button class="subscribe-button" id="code-login">Entrar com meu e-mail <span aria-hidden="true">→</span></button>
+    <form id="code-form" hidden>
+      <label for="code-email">E-mail confirmado da conta</label>
+      <input id="code-email" type="email" autocomplete="email" readonly>
+      <label for="activation-grant">Compra para ativar</label>
+      <select id="activation-grant" required></select>
+      <label for="access-code">Código de ativação</label>
+      <input id="access-code" name="code" type="text" placeholder="Cole o código de 24 caracteres" minlength="24" maxlength="24" pattern="[a-fA-F0-9]{24}" autocomplete="one-time-code" spellcheck="false" required>
+      <button class="subscribe-button" type="submit">Ativar Premium <span aria-hidden="true">→</span></button>
+      <button class="small-button" id="resend-code" type="button">Reenviar código</button>
+      <p class="fine-print">Código pessoal, válido por 15 minutos. Um reenvio invalida o código anterior. Sua compra permanece registrada mesmo se o código expirar.</p>
     </form>
   </dialog>
   <div class="toast" id="toast" role="status" hidden></div>
